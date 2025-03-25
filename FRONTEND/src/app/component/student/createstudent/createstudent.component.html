@@ -1,0 +1,140 @@
+<div class="container-xl">
+    <div class="table-responsive">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-6">
+              <h4><b>New Student</b></h4>
+            </div>
+          </div>
+        </div>
+        <form #studentForm="ngForm">
+          <div class="table-content">
+            <!-- First Name -->
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label for="firstName" class="p-t-b-10">Prenom<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstName"
+                  required
+                  maxlength="255"
+                  [(ngModel)]="student.prenom"
+                  name="prenom"
+                  #firstName="ngModel"
+                />
+                <div *ngIf="firstName.errors && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!firstName.errors?.['required']">
+                    First Name is required
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Last Name -->
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label for="lastName" class="p-t-b-10">Nom<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastName"
+                  required
+                  maxlength="255"
+                  [(ngModel)]="student.nom"
+                  name="nom"
+                  #lastName="ngModel"
+                />
+                <div *ngIf="lastName.errors && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!lastName.errors?.['required']">
+                    Last Name is required
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+   
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label for="lastName" class="p-t-b-10">Date Naissance<span class="requiredStar">*</span></label>
+              </div>
+              <div class="col-sm-9">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="date_naissance"
+                  required
+                  maxlength="255"
+                  [(ngModel)]="student.date_naissance"
+                  name="date_naissance"
+                  #lastName="ngModel"
+                />
+                <div *ngIf="lastName.errors && isSubmitted" class="alert alert-danger validationError">
+                  <div [hidden]="!lastName.errors?.['required']">
+                    Last Name is required
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label for="niveau" class="p-t-b-10">
+                  Niveau<span class="requiredStar">*</span>
+                </label>
+              </div>
+              <div class="col-sm-9">
+                <select
+                  class="form-control"
+                  id="niveau"
+                  required
+                  [(ngModel)]="student.niveau"
+                  name="niveau"
+                  #niveau="ngModel"
+                >
+                  <option value="" disabled selected>Choisissez un niveau</option>
+                  <option   value="niveau">LICENCE</option>
+                  <option   value="niveau">MASTER</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group p-10 row">
+              <div class="col-sm-3">
+                <label for="filiere" class="p-t-b-10">
+                  Filière<span class="requiredStar">*</span>
+                </label>
+              </div>
+              <div class="col-sm-9">
+                <select
+                  class="form-control"
+                  id="filiere"
+                  required
+                  [(ngModel)]="student.filiere"
+                  name="filiere"
+                  #filiere="ngModel"
+                >
+                  <option value="" disabled selected>Choisissez une filière</option>
+                  <option value="Informatique">Informatique</option>
+                  <option value="Mathématiques">Mathématiques</option>
+                  <option value="Physique">Physique</option>
+                  <option value="Électronique">Électronique</option>
+                  <option value="Gestion">Gestion</option>
+                </select>
+              </div>
+            </div>
+            
+                  <!-- Submit Button -->
+          <div class="table-footer">
+            <button class="btn btn-success" (click)="addStudent()">Submit</button>
+          </div></div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
